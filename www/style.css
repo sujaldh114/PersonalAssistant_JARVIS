@@ -1,0 +1,229 @@
+body {
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* wrapper for everything */
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* slightly smaller than full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* center the canvas */
+#canvasOne {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* center the glowing circle */
+#JarvisHood {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#square {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+/* glowing animation (same as before) */
+#square span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#6b72ff00 50%, #000dff3b 40%);
+    box-shadow: 0 0 50px rgb(25, 0, 255) inset, 0 0 50px rgb(25, 0, 255);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: animate1 6s linear infinite;
+}
+
+@keyframes animate1 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* position and visibility of text */
+h5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00bfff;
+    font-weight: 500;
+    font-size: 1.3rem;
+    font-family: 'Poppins', sans-serif; /* clean modern font */
+    text-shadow: 0 0 10px #007bff;
+    z-index: 3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+#TextInput {
+    position: absolute;
+    bottom: 40px; /* distance from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #181818a8;
+    border: 1px solid blue;
+    box-shadow: 0 0 20px rgb(25, 0, 255);
+    border-radius: 8px;
+    color: white;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    z-index: 3;
+}
+  .input-field {
+    background-color: transparent;
+    border: none;
+    width: 95%;
+    outline: none;
+    color: white;
+    font-family: cursive;
+  }
+  
+  
+  .glow-on-hover {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    padding: 0px;
+    margin-left: 10px;
+  }
+  
+  .glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  .glow-on-hover:active {
+    color: #181818a8
+  }
+  
+  .glow-on-hover:active:after {
+    background: transparent;
+  }
+  
+  .glow-on-hover:hover:before {
+    opacity: 1;
+  }
+  
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+  
+    50% {
+      background-position: 400% 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+.siri-text-container {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin-top: 300px; /* ⬅ moves text + wave down vertically */
+}
+
+.siri-text {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff; /* ⬅ white text */
+  font-size: 1.6rem;
+  margin-bottom: 20px; /* space between text and Siri wave */
+  text-shadow: 0 0 10px #007bff;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#SiriWave {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Force output text to appear above all visual layers */
+.output-text {
+  position: absolute;
+  top: 75%; /* Adjust vertically */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  text-shadow: 0 0 15px #007bff, 0 0 30px #00ffff;
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.5;
+  z-index: 9999; /* Ensure it’s above everything */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.output-text.visible {
+  opacity: 1;
+}

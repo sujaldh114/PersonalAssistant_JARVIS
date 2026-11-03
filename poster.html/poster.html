@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS - AI Assistant Poster</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .poster {
+      width: 210mm;
+      height: 297mm;
+      margin: 20px auto;
+      background: linear-gradient(135deg, #000000 0%, #0a0a2e 50%, #000000 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 100, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .glow-circle {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 100, 255, 0.6) 0%, rgba(0, 50, 200, 0.3) 40%, transparent 70%);
+      animation: pulse 3s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    }
+
+    .inner-circle {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #000;
+      border: 3px solid rgba(0, 100, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .header {
+      text-align: center;
+      padding: 40px 20px 10px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .logo-text {
+      font-size: 72px;
+      font-weight: bold;
+      letter-spacing: 15px;
+      color: #00d4ff;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 100, 255, 0.6);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 100, 255, 0.6); }
+      50% { text-shadow: 0 0 30px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 100, 255, 0.8); }
+    }
+
+    .subtitle {
+      font-size: 24px;
+      color: #88c0ff;
+      letter-spacing: 5px;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    .tagline {
+      position: absolute;
+      top: 63%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 26px;
+      color: #00d4ff;
+      z-index: 3;
+      text-align: center;
+      font-style: italic;
+      width: 80%;
+    }
+
+    .features {
+      position: absolute;
+      bottom: 230px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      z-index: 3;
+    }
+
+    .feature-box {
+      background: rgba(0, 100, 255, 0.1);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      min-height: 80px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .feature-title {
+      font-size: 16px;
+      color: #00d4ff;
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+
+    .feature-desc {
+      font-size: 12px;
+      color: #88c0ff;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 3;
+      width: 90%;
+    }
+
+    .project-info {
+      font-size: 14px;
+      color: #88c0ff;
+      margin-bottom: 8px;
+    }
+
+    .tech-stack {
+      font-size: 12px;
+      color: #4a90e2;
+      margin-top: 8px;
+    }
+
+    .university-name {
+      font-size: 18px;
+      color: #00d4ff;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .group-name {
+      font-size: 16px;
+      color: #88c0ff;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .team-members {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 10px;
+      color: #4a90e2;
+    }
+
+    .member {
+      text-align: center;
+    }
+
+    .member-name {
+      color: #88c0ff;
+      font-weight: bold;
+    }
+
+    .decorative-line {
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+      margin: 10px auto;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .poster { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow-circle"></div>
+
+    <div class="header">
+      <div class="logo-text">JARVIS</div>
+      <div class="subtitle">AI VOICE ASSISTANT</div>
+    </div>
+
+    <div class="inner-circle">
+      <div style="text-align: center;">
+        <div style="font-size: 48px; color: #00d4ff;">🎙️</div>
+        <div style="font-size: 14px; color: #88c0ff; margin-top: 10px;">Voice Activated</div>
+      </div>
+    </div>
+
+    <div class="tagline">
+      "Ask me anything..."
+    </div>
+
+    <div class="features">
+      <div class="feature-box">
+        <div class="feature-icon">🗣️</div>
+        <div class="feature-title">Voice Recognition</div>
+        <div class="feature-desc">Natural speech processing</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">AI Powered</div>
+        <div class="feature-desc">Intelligent responses</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Real-time</div>
+        <div class="feature-desc">Instant communication</div>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">🌐</div>
+        <div class="feature-title">Multi-functional</div>
+        <div class="feature-desc">Versatile capabilities</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="decorative-line"></div>
+      <div class="university-name">CHANDIGARH UNIVERSITY</div>
+      <div class="group-name">Strange Coders</div>
+      <div class="project-info">
+        <strong>Computer Science Project</strong><br>
+        Intelligent Voice Assistant System
+      </div>
+      <div class="team-members">
+        <div class="member">
+          <span class="member-name">Sujal Dhiman</span><br>25MCA20186
+        </div>
+        <div class="member">
+          <span class="member-name">Shubham Kumar Singh</span><br>25MCA20354
+        </div>
+        <div class="member">
+          <span class="member-name">Chaitanya Sharma</span><br>25MCA20167
+        </div>
+        <div class="member">
+          <span class="member-name">Kanika Aggarwal</span><br>25MCA20176
+        </div>
+      </div>
+      <div class="tech-stack">
+        Python | Speech Recognition | AI | Natural Language Processing
+      </div>
+      <div class="decorative-line"></div>
+      <div style="font-size: 11px; color: #4a90e2; margin-top: 5px;">
+        Developed with ❤️ using Advanced AI Technology
+      </div>
+    </div>
+  </div>
+</body>
+</html>

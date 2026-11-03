@@ -1,0 +1,15 @@
+envjarvis/
+__pycache__/
+*.py[cod]
+
+# Local runtime data and personal contacts
+jarvis.db
+contacts.csv
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Personal project documents
+Project python Sujal.pdf
